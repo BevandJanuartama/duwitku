@@ -16,7 +16,7 @@ export default function Register() {
         password
       );
       alert("Registrasi sukses!");
-      router.push("/index");
+      router.push("/");
     } catch (error) {
       alert(error.message);
     }

@@ -25,7 +25,7 @@ export default function Dashboard() {
     return () => unsubscribe();
   }, [user]);
 
-  // Ambil transaksi
+  // Ambil transactions & urutkan
   useEffect(() => {
     if (!user) return;
     const q = query(
@@ -34,6 +34,8 @@ export default function Dashboard() {
     );
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      // urutkan transaksi terbaru di atas
+      data.sort((a, b) => new Date(b.date) - new Date(a.date));
       setTransactions(data);
     });
     return () => unsubscribe();
@@ -72,7 +74,7 @@ export default function Dashboard() {
     .filter((t) => t.type === "pemasukan")
     .reduce((sum, t) => sum + t.amount, 0);
   const totalExpense = transactions
-    .filter((t) => t.type === "keluar")
+    .filter((t) => t.type === "pengeluaran")
     .reduce((sum, t) => sum + t.amount, 0);
 
   return (
@@ -304,7 +306,7 @@ export default function Dashboard() {
                     wallets.find((w) => w.id === trx.walletId)?.name ||
                     "Wallet tidak ditemukan";
                   const signedAmount =
-                    trx.type === "keluar" ? -trx.amount : trx.amount;
+                    trx.type === "pengeluaran" ? -trx.amount : trx.amount;
 
                   return (
                     <tr

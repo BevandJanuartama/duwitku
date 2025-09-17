@@ -16,7 +16,7 @@ export default function Login() {
         password
       );
       alert("Login sukses!");
-      router.push("/index");
+      router.push("/");
     } catch (error) {
       alert(error.message);
     }
