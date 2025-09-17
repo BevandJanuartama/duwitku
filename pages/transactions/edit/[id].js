@@ -132,7 +132,7 @@ export default function EditTransaction() {
       });
 
       alert("Transaksi berhasil diperbarui!");
-      router.push("/dashboard");
+      router.push("/index");
     } catch (error) {
       console.error(error);
       alert("Terjadi kesalahan saat memperbarui transaksi.");
@@ -207,7 +207,7 @@ export default function EditTransaction() {
         <div className="flex justify-between">
           <button
             type="button"
-            onClick={() => router.push("/dashboard")}
+            onClick={() => router.push("/index")}
             className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-lg"
           >
             ← Back

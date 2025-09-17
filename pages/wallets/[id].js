@@ -76,7 +76,7 @@ export default function WalletDetail() {
         await batch.commit();
 
         alert("Wallet dan semua transaksi terkait berhasil dihapus!");
-        router.push("/dashboard");
+        router.push("/index");
       } catch (error) {
         console.error(error);
         alert("Terjadi kesalahan saat menghapus wallet.");
@@ -92,7 +92,7 @@ export default function WalletDetail() {
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">{wallet.name}</h1>
         <div className="flex gap-2">
-          <Link href="/dashboard">
+          <Link href="/index">
             <button className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">
               ⬅ Kembali
             </button>

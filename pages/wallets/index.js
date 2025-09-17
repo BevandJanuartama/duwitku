@@ -51,7 +51,7 @@ export default function Wallets() {
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Wallets</h1>
         <button
-          onClick={() => router.push("/dashboard")}
+          onClick={() => router.push("/index")}
           className="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded-lg"
         >
           ← Back
